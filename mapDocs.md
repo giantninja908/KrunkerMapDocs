@@ -230,6 +230,7 @@ basic JSON knowledge is reccomended for this guide
   - 17: Container (blue)
     - `v`, `l`, `wj`, `gp`, `spn`, `spa`, `ms`, `p`, `r`, `ten`, `c`, `ci`, `o`, `ab`, `ba`, `cdy`, `sd`, `h`, `rt`, `rr`, `in`
   - 18: grass
+    - `v`, `l,` `spn`, `spa`, `ms`, `p`, `r`, `ten`, `c`, `ci`, `o`, `cdy`, `sd`, `h`, `rt`, `rr`, `in`
   - 19: Container (red)
   - 20: acid barel
   - 21: door
