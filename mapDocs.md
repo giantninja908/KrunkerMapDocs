@@ -60,6 +60,7 @@ basic JSON knowledge is reccomended for this guide
   - `sunAngY`: Y angle of the sun
   - there is no Z angle 
 - `xyz`: this relates to the `objects` property, it's a multiple of 3 list that has the scales for each object, the object of `si` of 0 would use the first 3, object of `si` 1 would use the 2nd three, etc
+- `colors`: simular to `xyz` except instead of `si` it uses `ci` for color index or `ei` for emissive index to point to a value here, with each being 1 `color` value
 - `spawns`: this contains a list of lists (`[[0,0,0,0,0,0]]`) which are for spawns
   - first three numbers dictate position
   - next number dictates team, 0 is default/everyone with 1,2,3,4 being to their respective teams
@@ -68,7 +69,7 @@ basic JSON knowledge is reccomended for this guide
   - there can be multiple spawns in a singular map, example: `[[3,4,5,1,2,1], [-11,40,12,0,3,0]]`
 - `objects`: this contains a list of objects, majority of properties are optional, but required for certain functions, this is a list of objects, which means it takes the form of `[{}]`, each individual object can have the following properties:
   - `p` (type: `list`): this contains a 3 point list of where it's located, position
-  - `si` (type: `number`): index of the element, this and `p` are the only required properties
+  - `si` (type: `number`): scale index, this and `p` are the only required properties
   - `r` (type: `list`): 3 point list of rotation in RADIANS (not degrees, even if anti-radians is turned on) maximum of 2 decimals of precision normally used, default: [0,0,0]
   - `v` (type: `boolean`): this determines if it's INVISIBLE (1 being invisible) default: 0
   - `l` (type: `boolean`): this determines whether it's non collidable, 0 being collidable and 1 being not, default: 0
@@ -122,5 +123,37 @@ basic JSON knowledge is reccomended for this guide
   - `td` (type: `number`): texture direction, 0 for X and 1 for Y, default: 0
   - `fct` (type: `number`): frame count of an animated texture, default: 1
   - `fs` (type: `number`): frame speed of an animated texture, default: 0
-
+  - `ten` (type: `number`): texture encoding, default 0, mapped to the following values: default 0
+    - 0: Linear encoding
+    - 1: sRGB encoding
+    - 2: Gamma encoding
+    - 3: RGBE encoding
+    - 4: Log Luv Encoding
+    - 5: RGBM7 encoding
+    - 6: RGBM16 Encoding
+    - 7: RGBD Encoding
+    - 8: basic depth packing
+    - 9: RGBA depth packing
+  - `ci` (type: `number`): color index, see `colors` property of basic data, default NULL
+  - `ei` (type: `number`): emissive index, points to an index of the `colors` property of the map, default NULL
+  - `o` (type: `number`): value of 0 to 1 which determines the opacity of the object, default 1
+  - `ab` (type: `boolean`): if 1, disable shading, default 0
+  - `ba` (type: `number`): this is the amount of subdivisions the mesh has, note that more means the object has more tris, and as such takes longer to render, default 0
+  - `nf` (type: `boolean`): **n**o **f**og, if enabled, the object is not affected by fog, default 0
+  - `cdy` (type: `boolean`): if enabled, this object can be detroyed, default 0
+  - `h` (type: `number`): health of an object, default 0 (invicible)
+  - `sd` (type: `boolean`): start destroyed, default 0
+  - `rt` (type: `number`): respawn time, time between destroyed and when it spawns again, default 0 (never)
+  - `s` (type: `list`): in the event that `si` is not used, you can use `s` to indicate scale of an individual object instead of indexing it
+  - `c` (type: `color`): in the event that `ci` is not used, `c` alone can be used to demonstrate the color of an object
+  - `e` (type: `color`): in the event that `ei` is not used, `e` alone can represent a color
+  - `rr` (type: `boolean`): random respawn, if enabled, respawn at a random time
+  - `in` (type: `number`): interface ID to use, (used with triggers)
+  - `f` (type: `hex`): enabled faces in hexedecimal as string format, add the following per each enabled and convert it to hex for this property:
+    - front: 1
+    - back: 2
+    - bottom: 4
+    - top: 8
+    - left: 16
+    - right: 32
 
