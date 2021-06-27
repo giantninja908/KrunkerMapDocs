@@ -217,8 +217,9 @@ basic JSON knowledge is reccomended for this guide
   - 11: billboard
     - `v`, `l`, `wl`, `gp`, `p`, `r`, `s`, `si`, `ten`, `ab`, `cdy`, `sd`, `h`, `rt`, `rr`, `in`, `bb`, `sad`
   - 12: death zone
-    - `p`, `r`, `s`
+    - `p`, `r`, `s`, `si` 
   - 13: particles
+    - `d`, `p`, `r`, `s`, `si`, `ten`, `c`, `ci`, `pr`, `pb`, `pc`, `ps`, `psc`, `psp`, `pd`, `pg`
   - 14: objective
   - 15: tree
   - 16: cone
@@ -284,3 +285,11 @@ basic JSON knowledge is reccomended for this guide
 - `ec` (type: `boolean`): whether or not to enclose the ramp/make is solid, default 0
 - `l` (type: `boolean`): unknown value
 - `sp` (type: `number`): score points, default 0
+- `pr` (type: `number`): index to a list of possible particles to emit, [Default, Grass, Fog, Ember] being the list, default 0
+- `pb` (type: `number`): particle blending, index of a list of [Normal, Additive, Subtractive, Multiply], default of 0
+- `pc` (type: `number`): particle count, default 0
+- `ps` (type: `number`): particle size, default 0
+- `psc` (type: `number`): particle scale, default 0
+- `psp` (type: `number`): particle speed, default 0
+- `pd` (type: `number`): particle deceleration, default 0
+- `pg` (type: `number`): particle gravity, default 0
