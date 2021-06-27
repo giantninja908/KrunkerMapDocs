@@ -221,7 +221,10 @@ basic JSON knowledge is reccomended for this guide
   - 13: particles
     - `d`, `p`, `r`, `s`, `si`, `ten`, `c`, `ci`, `pr`, `pb`, `pc`, `ps`, `psc`, `psp`, `pd`, `pg`
   - 14: objective
+    - `p`, `r`, `s`, `si`
   - 15: tree
+    - `v`, `l`, `wj`, `gp`, `spn`, `spa`, `ms`, `p`, `r`, `tv`, `ten`, `o`, `ba`, `cdy`, `sd`, `h`, `rt`, `rr`, `in`
+    - texture variants for tree are `default` and `classic` being 0 and 1 respectively
   - 16: cone
   - 17: Container (blue)
   - 18: grass
