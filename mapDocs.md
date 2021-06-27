@@ -205,12 +205,19 @@ basic JSON knowledge is reccomended for this guide
   - 5: spawn point (legacy, see `spawns`)
     - `p`, `r`, `d`, `tm`, `cp`, `to`
   - 6: camera position
+    - `p`, `r`, `cstc`
   - 7: vehicle
+    - `v`, `l`, `wl`, `gp`, `spn`, `spa`, `ms`, `p`, `r`, `ten`, `c`, `ci`, `o`, `ba`, `cdy`, `sd`, `h`, `rt`, `rr`, `in`
   - 8: stack
+    - `v`, `l`, `wl`, `gp`, `spn`, `spa`, `ms`, `p`, `r`, `ten`, `c`, `ci`, `o`, `ab`, `ba`, `cdy`, `sd`, `h`, `rt`, `rr`, `in`
   - 9: ramp
+    - `v`, `l`, `b`, `d`, `ec`, `p`, `r`, `s`, `si`, `t`, `tv`, `at`, `tsr`, `tsm`, `ft`, `tro`, `tox`, `toy`, `ts`, `td`, `fct`, `fs`, `ten`, `c`, `ci`, `e`, `ei`, `o`, `ab`, `ba`
   - 10: score zone (zone in which you can enter to get score)
+    - `p`, `r`, `s`, `si`, `l`, `sp`
   - 11: billboard
+    - `v`, `l`, `wl`, `gp`, `p`, `r`, `s`, `si`, `ten`, `ab`, `cdy`, `sd`, `h`, `rt`, `rr`, `in`, `bb`, `sad`
   - 12: death zone
+    - `p`, `r`, `s`
   - 13: particles
   - 14: objective
   - 15: tree
@@ -260,7 +267,7 @@ basic JSON knowledge is reccomended for this guide
   - 59: knight
 - `spn` (type: `number`): how much to spin a model by, default 0
 - `sad` (type: `boolean`): indeed sad, it's for showing ads on a billboard (`i` of 11), default 0
-- `bb` (type: `number`): billboard poster number, the following are valid values: default 6
+- `bb` (type: `number`): billboard poster number, the following are valid values: default 0, or random
   - 1: Krunkie Loan service
   - 2: japanese billboard (TRANSLATION NEEDED)
   - 3: SoonTM billboard
@@ -271,4 +278,9 @@ basic JSON knowledge is reccomended for this guide
 - `d` (type: `number`): direction of an object, 0 1 2 or 3, default 0
 - `tm` (type: `number`): team number for a spawn point, default 0 or no team
 - `cp` (type: `boolean`): stating area for spawn point, default 0 or not
-- `to` (type: `boolean`): team only for spawn point
+- `to` (type: `boolean`): team only for spawn point, default 0
+- `cstc` (type: `boolean`): static camera, default 0
+- `b` (type: `number`): ramp boost property, default 0
+- `ec` (type: `boolean`): whether or not to enclose the ramp/make is solid, default 0
+- `l` (type: `boolean`): unknown value
+- `sp` (type: `number`): score points, default 0
