@@ -61,6 +61,26 @@ basic JSON knowledge is reccomended for this guide
 - `ocRefRes` (type: number): this determines the reflection resolution of the water. The value of this element corresponds to a value in a list of resolutions (the list's indices start at 1). The list is as following: 32, 64, 128, 256, 1024, 2048. The default value is 3, or 128 resolution.
 - `ocW` (type: number): this determines the width of the ocean (the default value is 1000)
 - `ocL` (type: number): this determines the length of the ocean (the default value is 1000)
+- `terrainSeed` (type: string): terrain seed of the map (seeds are codes that the game uses to generate terrain). This property also determines whether there is terrain or not ("" means no terrain, "something" means there is terrain). Also, if this property is unfulfilled then none of the following properties will appear in the map code.
+- `terrainTSeed` (type: string): tree seed of the map (this seed is used to generate trees on the terrain). This property also determines whether there are trees on the terrain or not ("" means no trees, "something" means there are trees)
+- `terrainWidth` (type: number): this determines the width of the terrain (default value is 3000)(range: 0-8000)
+- `terrainHeight` (type: number): this determines the length of the terrain (default value is 3000)(range: 0-8000)
+- `terrainMntMlt` (type: number): this determines the height of the terrain (default value is 1)(range: 0-5)
+- `terrainMntCol` (type: string): this determines the color of the mountains (default value is "#707070")
+- `terrainSnwCol` (type: string): this determines the color of the snow (default value is "#e8fdff")
+- `terrainGrsCol` (type: string): this determines the color of the grass (default value is "#5e692f")
+- `terrainDrtCol` (type: string): this determines the color of the dirt (default value is "#7f6238")
+- `terrainSndCol` (type: string): this determines the color of the sand (default value is "#967f51")
+- `terrainEase` (type: number): this determines the terrain's easing. The value of this element corresponds to a value in a list of easing types (the list's indices start at 0). The list is as following: linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInCubic, easeOutCubic, easeInOutCubic, easeInQuart, easeOutQuart, easeInOutQuart, easeInQuint, easeOutQuint, easeInOutQuint. (the default value is 12, or easeInOutQuint)
+- `sizeMlt` (type: number): unknown (default value is 2)
+- `zone` (type: bool): this determines if the zone is enabled or not (true being enabled)
+- `zoneSize` (type: number): this determines the size of the zone (the default value is 500)
+- `zoneHeight` (type: number): this determines the height of the zone (the default value is 1000). Note that this property doesn't show up in the map code if its value is 1000 (the default value)
+- `zoneSpeed` (type: number): this determines the speed of the zone (how fast it shrinks)(the default value is 1)
+- `zoneRnd` (type: bool): this determines if the zone will have a random endpoint (the default value is false)
+- `zoneCol0` (type: string): this determines the color of the top of the zone (the default color is "#c542d9")
+- `zoneCol1` (type: string): this determines the color of the middle of the zone (the default color is "#c542d9")
+- `zoneCol2` (type: string): this determines the color of the bottom of the zone (the default color is "#c542d9")
 - `fog`: color of the fog that shows up for objects far away
 - `fogD`: distance away from the player in which the fog appears
 - `light`: there is a directional light that can be colored
@@ -84,6 +104,7 @@ basic JSON knowledge is reccomended for this guide
 - `r` (type: `list`): 3 point list of rotation in RADIANS (not degrees, even if anti-radians is turned on) maximum of 2 decimals of precision normally used, default: [0,0,0]
 - `v` (type: `boolean`): this determines if it's INVISIBLE (1 being invisible) default: 0
 - `l` (type: `boolean`): this determines whether it's non collidable, 0 being collidable and 1 being not, default: 0
+- `pe` (type: `number`): from 0-1, how penetrable a bullet can go through it, 1 being no damage reduction and 0 being not at all, default 0
 - `wj` (type: `boolean`): this determines whether you cannot wall jump off of it, 0 being you can, 1 can't, default: 0
 - `gp` (type: `boolean`): this determines whether you can not grapple onto a surface, 0 being you can, default: 0
 - `bo` (type: `boolean`): this property marks the object as border, this means that if `disable border` option in game hosting is turned on, it won't collide/show, default: 0
@@ -170,12 +191,19 @@ basic JSON knowledge is reccomended for this guide
 
 ##### this marks the all the information you can find in a cube, the remaining is special objects
 
-- `i` (type: `number`): this is an important value for non-cube objects, the list of objects they refer to are: default 0, or cube
+- `i` (type: `number`): this is an important value for non-cube objects, the list of objects they refer to are: default 0, or cube, underneath each item is the types of values they can hold
   - 1: crate
+    - `v`, `l`, `wj`, `gp`, `spn`, `spa`, `ms`, `p`, `r`, `tv`, `ten`, `c`, `ci`, `o`, `ab`, `ba`, `cdy`, `sd`, `h`, `in`
+    - note: `tv` for crate is 0: default, 1: minimuliustic
   - 2: barrel
+    - `v`, `l`, `wj`, `gp`, `spn`, `spa`, `ms`, `p`, `r`, `tv`, `ten`, `c`, `ci`, `o`, `ab`, `ba`, `cdy`, `sda`, `h`, `rt`, `rr`, `in`
+    - note: `tv` for barrel is 0: default, 1: classic 2018, 2: classic 2018 alt, 3: classic 2019
   - 3: ladder
+    - `v`, `l`, `d`, `p`, `r`, `s`, `si`, `t`, `tv`, `at`, `tsr`, `tsm`, `ft`, `tro`, `tox`, `toy`, `ten`, `c`, `ci`, `o`, `ab`, `ba`
   - 4: plane
+    - `v`, `l`, `pe`, `p`, `r`, `s`, `si`, `t`, `tv`, `at`, `tsr`, `tsm`, `ft`, `tro`, `tox`, `toy`, `ts`, `td`, `fct`, `fs`, `ten`, `c`, `ci`, `e`, `ei`, `o`, `ab`, `ba`, `cdy`, `sd`, `h`, `rt`, `rr`, `in`
   - 5: spawn point (legacy, see `spawns`)
+    - `p`, `r`, `d`, `tm`, `cp`, `to`
   - 6: camera position
   - 7: vehicle
   - 8: stack
@@ -183,6 +211,53 @@ basic JSON knowledge is reccomended for this guide
   - 10: score zone (zone in which you can enter to get score)
   - 11: billboard
   - 12: death zone
+  - 13: particles
+  - 14: objective
+  - 15: tree
+  - 16: cone
+  - 17: Container (blue)
+  - 18: grass
+  - 19: Container (red)
+  - 20: acid barel
+  - 21: door
+  - 22: window
+  - 23: flag
+  - 24: gate
+  - 25: checkpoint
+  - 26: weapon pickup
+  - 27: teleporter
+  - 28: teddy bear
+  - 29: trigger
+  - 30: sign
+  - 31: deposit box
+  - 32: light cone
+  - 33: camera (spectate or player)
+  - 34: sphere
+  - 35: placeholder
+  - 36: cardboard box
+  - 37: pallet
+  - 38: liquid
+  - 39: sound emitter
+  - 40: none/not used
+  - 41: none/not used
+  - 42: premium zone
+  - 43: verified zone
+  - 44: custom asset
+  - 45: bomb site
+  - 46: bounce pad
+  - 47: team zone
+  - 48: cyllinder
+  - 49: police
+  - 50: criminal in cage
+  - 51: explosive barrel
+  - 52: skin showcase
+  - 53: point light
+  - 54: ghost
+  - 55: ai spawner
+  - 56: pumpkin
+  - 57: rune
+  - 58: skeleton
+  - 59: knight
 - `spn` (type: `number`): how much to spin a model by, default 0
 - `sad` (type: `boolean`): indeed sad, it's for showing ads on a billboard (`i` of 11), default 0
 - `bb` (type: `number`): billboard poster number, the following are valid values: default 6
@@ -191,3 +266,9 @@ basic JSON knowledge is reccomended for this guide
   - 3: SoonTM billboard
   - 4: "be like joe" anti-hack message
   - 5: moomoo.io advertisement
+- `spa` (type: `number`): spin axis, 0 being Y and 1 being X, default 0
+- `ms` (type: `number`): model scale, default 1
+- `d` (type: `number`): direction of an object, 0 1 2 or 3, default 0
+- `tm` (type: `number`): team number for a spawn point, default 0 or no team
+- `cp` (type: `boolean`): stating area for spawn point, default 0 or not
+- `to` (type: `boolean`): team only for spawn point
