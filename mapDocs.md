@@ -276,7 +276,7 @@ basic JSON knowledge is reccomended for this guide
 - `sad` (type: `boolean`): indeed sad, it's for showing ads on a billboard (`i` of 11), default 0
 - `bb` (type: `number`): billboard poster number, the following are valid values: default 0, or random
   - 1: Krunkie Loan service
-  - 2: japanese billboard (TRANSLATION NEEDED)
+  - 2: japanese billboard which spells "kurankaa" or krunker in japanese
   - 3: SoonTM billboard
   - 4: "be like joe" anti-hack message
   - 5: moomoo.io advertisement
