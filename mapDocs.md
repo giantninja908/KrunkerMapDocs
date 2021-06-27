@@ -12,14 +12,14 @@ a lot lol
   - embient intensity
   - ambient sound
   - cloud texture
-- terrain (all)
-- zone
-  - enabled
-  - speed
-  - random endpoint
-  - top middle bottom color
-  - style
-  - height
+- ~~terrain (all)~~
+- ~~zone~~
+  - ~~enabled~~
+  - ~~speed~~
+  - ~~random endpoint~~
+  - ~~top middle bottom color~~
+  - ~~style~~
+  - ~~height~~
 - ~~ocean~~ info thanks to MinecraftRedstoner
   - ~~enabled~~
   - ~~water color~~
