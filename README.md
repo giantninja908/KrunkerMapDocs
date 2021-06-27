@@ -4,6 +4,6 @@
 you can read the docs [Here](https://github.com/giantninja908/KrunkerMapDocs/blob/main/mapDocs.md)
 
 contributors:
-Giant#7650
-
-YOU (perhaps) 
+- Giant#7650
+- MinecraftRedstoner83#3349
+- YOU (perhaps) 
